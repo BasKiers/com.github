@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+    <script type="text/javascript" src="/manager/webserver/assets/js/jquery.js"></script>
+    <script src="./bower_components/clipboard/dist/clipboard.min.js"></script>
+</head>
+<body>
+<h1 data-i18n="settings.title"></h1>
+
+<div id="content">
+    <div id="deauthorize-container">
+        <fieldset>
+            <legend data-i18n="settings.auth.connected_with"></legend>
+            <div id="account"></div>
+        </fieldset>
+
+        <p data-i18n="settings.auth.deauthorize_intro"></p>
+
+        <fieldset>
+            <legend data-i18n="settings.auth.deauth_title"></legend>
+            <button onclick="Homey.api('PUT', '/deauthorize/'); setAuthorizationState(false);"
+                    id="deauthorize" data-i18n="settings.auth.deauthorize"></button>
+        </fieldset>
+    </div>
+    <div id="authorize-container">
+        <p data-i18n="settings.auth.authorize_intro"></p>
+
+        <fieldset>
+            <legend data-i18n="settings.auth.auth_title"></legend>
+            <button onclick="window.open(authURL);" id="authorize" data-i18n="settings.auth.authorize"
+                    disabled="disabled"></button>
+        </fieldset>
+    </div>
+
+
+    <p data-i18n="settings.webhook.intro"></p>
+
+    <fieldset>
+        <legend data-i18n="settings.webhook.title"></legend>
+        <input type="text" id="webhookUrl" value="" readonly/>
+        <button onclick="" id="webhookUrlCopy" data-clipboard-target="#webhookUrl"><i class="fa fa-copy"></i></button>
+    </fieldset>
+
+    <p data-i18n="settings.warning" id="warning" style="display:none;"></p>
+</div>
+
+<script type="text/javascript">
+    new Clipboard('#webhookUrlCopy');
+    var authURL;
+
+    function onHomeyReady() {
+        Homey.get('authorized', function (err, result) {
+            setAuthorizationState(!err && result);
+            Homey.ready();
+        });
+
+        Homey.api('PUT', '/authorize/', {}, function (err, data) {
+            if (!err && typeof data === 'object') {
+                authURL = data.url;
+                $('#authorize').prop('disabled', '');
+            }
+        });
+
+        Homey.get('webhook_url', function (err, url) {
+            $('#webhookUrl').val(url);
+        });
+
+        Homey.on('authorized', function (isAuthorized) {
+            setAuthorizationState(isAuthorized);
+        });
+    }
+
+    var deauthorizeContainer = $('#deauthorize-container');
+    var authorizeContainer = $('#authorize-container');
+    function setAuthorizationState(isAuthorized) {
+        if (isAuthorized) {
+            authorizeContainer.hide();
+            $('#account').html();
+            deauthorizeContainer.show();
+            Homey.get('user', function (err, user) {
+                $('#account').html(
+                    $('<div>')
+                        .append($('<img>').prop('src', user.avatar_url))
+                        .append($('<span>' + user.login + '</span>'))
+                );
+            });
+        } else {
+            deauthorizeContainer.hide();
+            authorizeContainer.show();
+        }
+    }
+</script>
+<style>
+    #webhookUrl {
+        width: 550px;
+    }
+
+    #account img {
+        float: left;
+        width: 50px;
+        height: 50px;
+    }
+
+    #account span {
+        float: left;
+        line-height: 50px;
+        padding-left: 10px;
+    }
+</style>
+</body>
+</html>

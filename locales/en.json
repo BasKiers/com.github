@@ -1,0 +1,28 @@
+{
+  "settings": {
+    "title": "Github Settings",
+    "warning": "Something went wrong, please try again",
+    "auth": {
+      "connected_with": "Currently you are connected with this account",
+      "authorize_intro": "To give Homey access to your Github account, click the button below!",
+      "auth_title": "Authorize Homey",
+      "deauth_title": "Deauthorize Homey",
+      "deauthorize_intro": "If you want to disconnect Homey from your Github account, click the button below.",
+      "deauthorize": "Withdraw Homey's authorization",
+      "authorize": "Authorize Homey to use your Github account!"
+    },
+    "webhook": {
+      "intro": "To use webhooks with homey you will have to add the webhook url manually to the repository (for now).",
+      "title": "This webhook url will link github events to your homey"
+    }
+  },
+  "flow": {
+    "please_login": "Please connect with your Github account in Settings"
+  },
+  "error": {
+    "condition": {
+      "issue_count": "Could not get issue count, please check your Github credentials.",
+      "pr_count": "Could not get pull request count, please check your Github credentials."
+    }
+  }
+}

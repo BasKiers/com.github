@@ -1,0 +1,800 @@
+{
+  "id": "com.github",
+  "name": {
+    "en": "Github"
+  },
+  "version": "1.0.0",
+  "compatibility": "0.x || 1.x",
+  "author": {
+    "name": "Bas Kiers",
+    "email": "bas@athom.nl"
+  },
+  "flow": {
+    "triggers": [
+      {
+        "id": "issue_opened",
+        "title": {
+          "en": "An issue is opened in..."
+        },
+        "tokens": [
+          {
+            "name": "issue_title",
+            "title": {
+              "en": "title"
+            },
+            "example": {
+              "en": "I've got issue x when doing y."
+            }
+          },
+          {
+            "name": "issue_body",
+            "title": {
+              "en": "body"
+            },
+            "example": {
+              "en": "For instance when I perform y, x happens"
+            }
+          },
+          {
+            "name": "user_name",
+            "title": {
+              "en": "user"
+            },
+            "example": {
+              "en": "janjansen"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "repo_name",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "com.helloworld"
+            }
+          }
+        ]
+      },
+      {
+        "id": "issue_closed",
+        "title": {
+          "en": "An issue is closed in..."
+        },
+        "tokens": [
+          {
+            "name": "issue_title",
+            "title": {
+              "en": "title"
+            },
+            "example": {
+              "en": "I've got issue x when doing y."
+            }
+          },
+          {
+            "name": "issue_body",
+            "title": {
+              "en": "body"
+            },
+            "example": {
+              "en": "For instance when I perform y, x happens"
+            }
+          },
+          {
+            "name": "user_name",
+            "title": {
+              "en": "user"
+            },
+            "example": {
+              "en": "janjansen"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "repo_name",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "com.hello.world"
+            }
+          }
+        ]
+      },
+      {
+        "id": "issue_commented",
+        "title": {
+          "en": "An issue gets a comment in..."
+        },
+        "tokens": [
+          {
+            "name": "issue_title",
+            "title": {
+              "en": "issue"
+            },
+            "example": {
+              "en": "I've got issue x when doing y."
+            }
+          },
+          {
+            "name": "issue_state",
+            "title": {
+              "en": "issue state"
+            },
+            "example": {
+              "en": "open"
+            }
+          },
+          {
+            "name": "comment_body",
+            "title": {
+              "en": "comment"
+            },
+            "example": {
+              "en": "I've had a similar experience with x"
+            }
+          },
+          {
+            "name": "user_name",
+            "title": {
+              "en": "user"
+            },
+            "example": {
+              "en": "janjansen"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "repo_name",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "com.hello.world"
+            }
+          }
+        ]
+      },
+      {
+        "id": "pr_opened",
+        "title": {
+          "en": "A pull request is opened in..."
+        },
+        "tokens": [
+          {
+            "name": "pr_from_name",
+            "title": {
+              "en": "source"
+            },
+            "example": {
+              "en": "com.helloworld"
+            }
+          },
+          {
+            "name": "pr_from_branch",
+            "title": {
+              "en": "source branch"
+            },
+            "example": {
+              "en": "changes"
+            }
+          },
+          {
+            "name": "pr_to_branch",
+            "title": {
+              "en": "dest branch"
+            },
+            "example": {
+              "en": "master"
+            }
+          },
+          {
+            "name": "pr_title",
+            "title": {
+              "en": "title"
+            },
+            "example": {
+              "en": "Fixed x"
+            }
+          },
+          {
+            "name": "pr_body",
+            "title": {
+              "en": "description"
+            },
+            "example": {
+              "en": "fixed x by doing y and my fix completes all tests"
+            }
+          },
+          {
+            "name": "pr_state",
+            "title": {
+              "en": "state"
+            },
+            "example": {
+              "en": "open"
+            }
+          },
+          {
+            "name": "user_name",
+            "title": {
+              "en": "user"
+            },
+            "example": {
+              "en": "janjansen"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "repo_name",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "com.hello.world"
+            }
+          }
+        ]
+      },
+      {
+        "id": "pr_edited",
+        "title": {
+          "en": "A pull request is edited in..."
+        },
+        "tokens": [
+          {
+            "name": "pr_from_name",
+            "title": {
+              "en": "source"
+            },
+            "example": {
+              "en": "com.helloworld"
+            }
+          },
+          {
+            "name": "pr_from_branch",
+            "title": {
+              "en": "source branch"
+            },
+            "example": {
+              "en": "changes"
+            }
+          },
+          {
+            "name": "pr_to_branch",
+            "title": {
+              "en": "dest branch"
+            },
+            "example": {
+              "en": "master"
+            }
+          },
+          {
+            "name": "pr_title",
+            "title": {
+              "en": "title"
+            },
+            "example": {
+              "en": "Fixed x"
+            }
+          },
+          {
+            "name": "pr_body",
+            "title": {
+              "en": "description"
+            },
+            "example": {
+              "en": "fixed x by doing y and my fix completes all tests"
+            }
+          },
+          {
+            "name": "pr_state",
+            "title": {
+              "en": "state"
+            },
+            "example": {
+              "en": "open"
+            }
+          },
+          {
+            "name": "user_name",
+            "title": {
+              "en": "user"
+            },
+            "example": {
+              "en": "janjansen"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "repo_name",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "com.hello.world"
+            }
+          }
+        ]
+      },
+      {
+        "id": "pr_merged",
+        "title": {
+          "en": "An pull request is merged in..."
+        },
+        "tokens": [
+          {
+            "name": "pr_from_name",
+            "title": {
+              "en": "source"
+            },
+            "example": {
+              "en": "com.helloworld"
+            }
+          },
+          {
+            "name": "pr_from_branch",
+            "title": {
+              "en": "source branch"
+            },
+            "example": {
+              "en": "changes"
+            }
+          },
+          {
+            "name": "pr_to_branch",
+            "title": {
+              "en": "dest branch"
+            },
+            "example": {
+              "en": "master"
+            }
+          },
+          {
+            "name": "pr_title",
+            "title": {
+              "en": "title"
+            },
+            "example": {
+              "en": "Fixed x"
+            }
+          },
+          {
+            "name": "pr_body",
+            "title": {
+              "en": "description"
+            },
+            "example": {
+              "en": "fixed x by doing y and my fix completes all tests"
+            }
+          },
+          {
+            "name": "pr_state",
+            "title": {
+              "en": "state"
+            },
+            "example": {
+              "en": "open"
+            }
+          },
+          {
+            "name": "user_name",
+            "title": {
+              "en": "user"
+            },
+            "example": {
+              "en": "janjansen"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "repo_name",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "com.hello.world"
+            }
+          }
+        ]
+      },
+      {
+        "id": "pr_closed",
+        "title": {
+          "en": "A pull request is closed in..."
+        },
+        "tokens": [
+          {
+            "name": "pr_from_name",
+            "title": {
+              "en": "source"
+            },
+            "example": {
+              "en": "com.helloworld"
+            }
+          },
+          {
+            "name": "pr_from_branch",
+            "title": {
+              "en": "source branch"
+            },
+            "example": {
+              "en": "changes"
+            }
+          },
+          {
+            "name": "pr_to_branch",
+            "title": {
+              "en": "dest branch"
+            },
+            "example": {
+              "en": "master"
+            }
+          },
+          {
+            "name": "pr_title",
+            "title": {
+              "en": "title"
+            },
+            "example": {
+              "en": "Fixed x"
+            }
+          },
+          {
+            "name": "pr_body",
+            "title": {
+              "en": "description"
+            },
+            "example": {
+              "en": "fixed x by doing y and my fix completes all tests"
+            }
+          },
+          {
+            "name": "pr_state",
+            "title": {
+              "en": "state"
+            },
+            "example": {
+              "en": "open"
+            }
+          },
+          {
+            "name": "user_name",
+            "title": {
+              "en": "user"
+            },
+            "example": {
+              "en": "janjansen"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "repo_name",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "com.hello.world"
+            }
+          }
+        ]
+      },
+      {
+        "id": "pr_commented",
+        "title": {
+          "en": "A pull request gets a comment in..."
+        },
+        "tokens": [
+          {
+            "name": "pr_title",
+            "title": {
+              "en": "title"
+            },
+            "example": {
+              "en": "Fixed x"
+            }
+          },
+          {
+            "name": "pr_body",
+            "title": {
+              "en": "description"
+            },
+            "example": {
+              "en": "fixed x by doing y and my fix completes all tests"
+            }
+          },
+          {
+            "name": "pr_state",
+            "title": {
+              "en": "state"
+            },
+            "example": {
+              "en": "open"
+            }
+          },
+          {
+            "name": "comment_body",
+            "title": {
+              "en": "comment"
+            },
+            "example": {
+              "en": "Could you update the PR with working tests?"
+            }
+          },
+          {
+            "name": "comment_user_name",
+            "title": {
+              "en": "user"
+            },
+            "example": {
+              "en": "janjansen"
+            }
+          },
+          {
+            "name": "pr_from_name",
+            "title": {
+              "en": "source"
+            },
+            "example": {
+              "en": "com.helloworld"
+            }
+          },
+          {
+            "name": "pr_from_branch",
+            "title": {
+              "en": "source branch"
+            },
+            "example": {
+              "en": "changes"
+            }
+          },
+          {
+            "name": "pr_to_branch",
+            "title": {
+              "en": "dest branch"
+            },
+            "example": {
+              "en": "master"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "repo_name",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "com.hello.world"
+            }
+          }
+        ]
+      },
+      {
+        "id": "push",
+        "title": {
+          "en": "A commit is pushed in..."
+        },
+        "tokens": [
+          {
+            "name": "branch",
+            "title": {
+              "en": "branch"
+            },
+            "example": {
+              "en": "master"
+            }
+          },
+          {
+            "name": "user_name",
+            "title": {
+              "en": "user"
+            },
+            "example": {
+              "en": "janjansen"
+            }
+          },
+          {
+            "name": "commits",
+            "title": {
+              "en": "# commits"
+            },
+            "example": {
+              "en": "4"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "repo_name",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "com.hello.world"
+            }
+          }
+        ]
+      },
+      {
+        "id": "watch",
+        "title": {
+          "en": "Repository gets starred"
+        },
+        "tokens": [
+          {
+            "name": "user_name",
+            "title": {
+              "en": "user"
+            },
+            "example": {
+              "en": "janjansen"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "repo_name",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "com.hello.world"
+            }
+          }
+        ]
+      },
+      {
+        "id": "fork",
+        "title": {
+          "en": "Repository gets forked"
+        },
+        "tokens": [
+          {
+            "name": "user_name",
+            "title": {
+              "en": "user"
+            },
+            "example": {
+              "en": "janjansen"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "repo_name",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "com.hello.world"
+            }
+          }
+        ]
+      },
+      {
+        "id": "release",
+        "title": {
+          "en": "When there is a new release for..."
+        },
+        "tokens": [
+          {
+            "name": "release_tag",
+            "title": {
+              "en": "Release tag"
+            },
+            "example": {
+              "en": "v1.0.0"
+            }
+          },
+          {
+            "name": "prerelease",
+            "title": {
+              "en": "is prerelease"
+            },
+            "example": {
+              "en": "true"
+            }
+          },
+          {
+            "name": "user_name",
+            "title": {
+              "en": "user"
+            },
+            "example": {
+              "en": "janjansen"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "repo_name",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "com.hello.world"
+            }
+          }
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "id": "issue_open",
+        "title": {
+          "en": "Open issues are !{{|not}} more than"
+        },
+        "args": [
+          {
+            "name": "repo_name",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "com.hello.world"
+            }
+          },
+          {
+            "name": "amount",
+            "type": "number",
+            "min": 0,
+            "placeholder": {
+              "en": "amount"
+            }
+          }
+        ]
+      },
+      {
+        "id": "issue_closed",
+        "title": {
+          "en": "Closed issues are !{{|not}} more than"
+        },
+        "args": [
+          {
+            "name": "repo_name",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "com.hello.world"
+            }
+          },
+          {
+            "name": "amount",
+            "type": "number",
+            "min": 0,
+            "placeholder": {
+              "en": "amount"
+            }
+          }
+        ]
+      },
+      {
+        "id": "pr_open",
+        "title": {
+          "en": "Open PR's are !{{|not}} more than"
+        },
+        "args": [
+          {
+            "name": "repo_name",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "com.hello.world"
+            }
+          },
+          {
+            "name": "amount",
+            "type": "number",
+            "min": 0,
+            "placeholder": {
+              "en": "amount"
+            }
+          }
+        ]
+      },
+      {
+        "id": "pr_closed",
+        "title": {
+          "en": "Closed PR's are !{{|not}} more than"
+        },
+        "args": [
+          {
+            "name": "repo_name",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "com.hello.world"
+            }
+          },
+          {
+            "name": "amount",
+            "type": "number",
+            "min": 0,
+            "placeholder": {
+              "en": "amount"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
