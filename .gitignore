@@ -1,3 +1,4 @@
 
 # exclude private env values
 env.json
+.idea

@@ -38,6 +38,23 @@
         <legend data-i18n="settings.webhook.title"></legend>
         <input type="text" id="webhookUrl" value="" readonly/>
         <button onclick="" id="webhookUrlCopy" data-clipboard-target="#webhookUrl"><i class="fa fa-copy"></i></button>
+        <div id="stepbystepcontainer">
+            <p data-i18n="settings.webhook.stepbystep.intro"></p>
+
+            <img src="assets/screenshot_1.jpg" />
+            <ol>
+                <li><p data-i18n="settings.webhook.stepbystep.step.1"></p></li>
+                <li><p data-i18n="settings.webhook.stepbystep.step.2"></p></li>
+                <li><p data-i18n="settings.webhook.stepbystep.step.3"></p></li>
+                <li><p data-i18n="settings.webhook.stepbystep.step.4"></p></li>
+            </ol>
+            <img src="assets/screenshot_2.jpg" />
+            <ol start="5">
+                <li><p data-i18n="settings.webhook.stepbystep.step.5"></p></li>
+                <li><p data-i18n="settings.webhook.stepbystep.step.6"></p></li>
+                <li><p data-i18n="settings.webhook.stepbystep.step.7"></p></li>
+            </ol>
+        </div>
     </fieldset>
 
     <p data-i18n="settings.warning" id="warning" style="display:none;"></p>
@@ -108,6 +125,20 @@
         float: left;
         line-height: 50px;
         padding-left: 10px;
+    }
+
+    #stepbystepcontainer {
+        padding-top:30px;
+    }
+
+    #stepbystepcontainer img {
+        width:100%;
+        max-width:1000px;
+        padding-top:20px;
+    }
+
+    #stepbystepcontainer ol {
+        padding-left: 50px;
     }
 </style>
 </body>

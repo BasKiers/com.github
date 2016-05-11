@@ -12,8 +12,20 @@
       "authorize": "Authorize Homey to use your Github account!"
     },
     "webhook": {
-      "intro": "To use webhooks with homey you will have to add the webhook url manually to the repository (for now).",
-      "title": "This webhook url will link github events to your homey"
+      "intro": "In order to use flow triggers, you will have to add this webhook url manually to the repository for now.",
+      "title": "This webhook url will link github events to your homey",
+      "stepbystep": {
+        "intro": "The instructions below explain how to add the webhook url to your github repository",
+        "step": {
+          "1": "Go to your GitHub repo that you want to use in your flow triggers",
+          "2": "open the settings tab",
+          "3": "Open the Webhooks & services menu",
+          "4": "Click the Add webhook button",
+          "5": "Copy the webhook url above and paste it in the Payload URL field",
+          "6": "To ensure you can use all flow trigger cards, even after new functionality is added, select Send me everything.",
+          "7": "Save the webhook, you can now use this repository in your flow triggers"
+        }
+      }
     }
   },
   "flow": {
