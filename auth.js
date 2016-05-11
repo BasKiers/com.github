@@ -52,6 +52,7 @@ module.exports.removeAccessToken = (callback) => {
   }
   settings.set('accessToken', null);
   settings.set('authorized', false);
+  Homey.manager('api').realtime('authorized', false);
   Homey.app.createGithubApi();
   callback(null, true);
 };

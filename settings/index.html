@@ -1,7 +1,6 @@
 <!doctype html>
 <html>
 <head>
-    <script type="text/javascript" src="/manager/webserver/assets/js/jquery.js"></script>
     <script src="./bower_components/clipboard/dist/clipboard.min.js"></script>
 </head>
 <body>
@@ -18,7 +17,7 @@
 
         <fieldset>
             <legend data-i18n="settings.auth.deauth_title"></legend>
-            <button onclick="Homey.api('PUT', '/deauthorize/'); setAuthorizationState(false);"
+            <button onclick="Homey.api('PUT', '/deauthorize/');"
                     id="deauthorize" data-i18n="settings.auth.deauthorize"></button>
         </fieldset>
     </div>
@@ -48,21 +47,26 @@
     new Clipboard('#webhookUrlCopy');
     var authURL;
 
+    function fetchAuthUrl() {
+        document.getElementById('authorize').disabled = true;
+        Homey.api('PUT', '/authorize/', {}, function (err, data) {
+            if (!err && typeof data === 'object') {
+                authURL = data.url;
+                document.getElementById('authorize').disabled = false;
+            }
+        });
+    }
+
     function onHomeyReady() {
         Homey.get('authorized', function (err, result) {
             setAuthorizationState(!err && result);
             Homey.ready();
         });
 
-        Homey.api('PUT', '/authorize/', {}, function (err, data) {
-            if (!err && typeof data === 'object') {
-                authURL = data.url;
-                $('#authorize').prop('disabled', '');
-            }
-        });
+        fetchAuthUrl();
 
         Homey.get('webhook_url', function (err, url) {
-            $('#webhookUrl').val(url);
+            document.getElementById('webhookUrl').value = url;
         });
 
         Homey.on('authorized', function (isAuthorized) {
@@ -70,23 +74,22 @@
         });
     }
 
-    var deauthorizeContainer = $('#deauthorize-container');
-    var authorizeContainer = $('#authorize-container');
+    var deauthorizeContainer = document.getElementById('deauthorize-container');
+    var authorizeContainer = document.getElementById('authorize-container');
     function setAuthorizationState(isAuthorized) {
         if (isAuthorized) {
-            authorizeContainer.hide();
-            $('#account').html();
-            deauthorizeContainer.show();
+            var accountContainer = document.getElementById('account');
+            authorizeContainer.style.display = 'none';
+            accountContainer.innerHTML = '';
+            deauthorizeContainer.style.display = 'block';
+            fetchAuthUrl(); // Refresh auth url in background
             Homey.get('user', function (err, user) {
-                $('#account').html(
-                    $('<div>')
-                        .append($('<img>').prop('src', user.avatar_url))
-                        .append($('<span>' + user.login + '</span>'))
-                );
+                accountContainer.innerHTML = '<div><img src="' + user.avatar_url + '" />' +
+                    '<span>' + user.login + '</span></div>';
             });
         } else {
-            deauthorizeContainer.hide();
-            authorizeContainer.show();
+            deauthorizeContainer.style.display = 'none';
+            authorizeContainer.style.display = 'block';
         }
     }
 </script>
