@@ -1,9 +1,9 @@
 'use strict';
 const request = require('request');
 
-const client_id = Homey.env.client_id;
-const client_secret = Homey.env.client_secret;
-const state = Homey.env.state;
+const client_id = Homey.env.CLIENT_ID;
+const client_secret = Homey.env.CLIENT_SECRET;
+const state = Homey.env.STATE;
 
 module.exports.init = () => {
   this.authWithToken();

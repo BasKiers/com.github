@@ -20,13 +20,13 @@ module.exports.init = () => {
     Homey.manager('settings').set('webhook_id', webhookId);
     Homey.manager('settings').set(
       'webhook_url',
-      `https://webhooks.athom.com/webhook/${Homey.env.router_webhook_id}?webhook_id=${webhookId}`
+      `https://webhooks.athom.com/webhook/${Homey.env.ROUTER_WEBHOOK_ID}?webhook_id=${webhookId}`
     );
   }
 
   Homey.manager('cloud').registerWebhook(
-    Homey.env.router_webhook_id,
-    Homey.env.router_webhook_secret,
+    Homey.env.ROUTER_WEBHOOK_ID,
+    Homey.env.ROUTER_WEBHOOK_SECRET,
     {webhook_id: webhookId},
     onWebhookMessage,
     (err, result) => {
