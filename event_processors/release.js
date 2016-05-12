@@ -11,13 +11,13 @@ function checkRepo(callback, args, state) {
 
 function getReleaseTokenObject(args) {
   const release = args.body.release;
-  const repository = args.body.repository;
 
   return {
     release_tag: release.tag_name,
+    release_name: release.name,
+    release_body: release.body,
     prerelease: release.prerelease,
-    user_name: release.author.login,
-    repo_name: repository.name
+    user_name: release.author.login
   }
 }
 

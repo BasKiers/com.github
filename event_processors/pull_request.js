@@ -16,13 +16,12 @@ function checkRepo(callback, args, state) {
 }
 
 function getPullRequestTokenObject(args) {
-  const repository = args.body.repository;
   const pr = args.body.pull_request;
 
   return {
     pr_from_name: pr.head.repo.name,
     pr_from_branch: pr.base.ref,
-    repo_name: repository.name,
+    pr_from_owner: pr.head.repo.owner.login,
     pr_to_branch: pr.head.ref,
     pr_title: pr.title,
     pr_body: pr.body,
@@ -32,7 +31,6 @@ function getPullRequestTokenObject(args) {
 }
 
 function getPullRequestCommentTokenObject(args) {
-  const repository = args.body.repository;
   const pr = args.body.pull_request;
   const comment = args.body.comment;
 
@@ -44,7 +42,7 @@ function getPullRequestCommentTokenObject(args) {
     comment_user_name: comment.user.login,
     pr_from_name: pr.head.repo.name,
     pr_from_branch: pr.base.ref,
-    repo_name: repository.name,
+    pr_from_owner: pr.head.repo.owner.login,
     pr_to_branch: pr.head.ref
   }
 }

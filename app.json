@@ -29,7 +29,7 @@
           {
             "name": "issue_body",
             "title": {
-              "en": "body"
+              "en": "description"
             },
             "example": {
               "en": "For instance when I perform y, x happens"
@@ -73,7 +73,7 @@
           {
             "name": "issue_body",
             "title": {
-              "en": "body"
+              "en": "description"
             },
             "example": {
               "en": "For instance when I perform y, x happens"
@@ -177,6 +177,15 @@
             }
           },
           {
+            "name": "pr_from_owner",
+            "title": {
+              "en": "source owner"
+            },
+            "example": {
+              "en": "janjansen"
+            }
+          },
+          {
             "name": "pr_to_branch",
             "title": {
               "en": "dest branch"
@@ -254,6 +263,15 @@
             },
             "example": {
               "en": "changes"
+            }
+          },
+          {
+            "name": "pr_from_owner",
+            "title": {
+              "en": "source owner"
+            },
+            "example": {
+              "en": "janjansen"
             }
           },
           {
@@ -337,6 +355,15 @@
             }
           },
           {
+            "name": "pr_from_owner",
+            "title": {
+              "en": "source owner"
+            },
+            "example": {
+              "en": "janjansen"
+            }
+          },
+          {
             "name": "pr_to_branch",
             "title": {
               "en": "dest branch"
@@ -414,6 +441,15 @@
             },
             "example": {
               "en": "changes"
+            }
+          },
+          {
+            "name": "pr_from_owner",
+            "title": {
+              "en": "source owner"
+            },
+            "example": {
+              "en": "janjansen"
             }
           },
           {
@@ -542,6 +578,15 @@
             }
           },
           {
+            "name": "pr_from_owner",
+            "title": {
+              "en": "source owner"
+            },
+            "example": {
+              "en": "janjansen"
+            }
+          },
+          {
             "name": "pr_to_branch",
             "title": {
               "en": "dest branch"
@@ -666,10 +711,28 @@
           {
             "name": "release_tag",
             "title": {
-              "en": "Release tag"
+              "en": "tag"
             },
             "example": {
               "en": "v1.0.0"
+            }
+          },
+          {
+            "name": "release_name",
+            "title": {
+              "en": "name"
+            },
+            "example": {
+              "en": "release of v1.0.0"
+            }
+          },
+          {
+            "name": "release_body",
+            "title": {
+              "en": "description"
+            },
+            "example": {
+              "en": "New release released with the following changes..."
             }
           },
           {

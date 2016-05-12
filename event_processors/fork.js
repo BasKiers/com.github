@@ -1,8 +1,8 @@
 'use strict';
 
 module.exports.init = () => {
-  Homey.manager('flow').on('trigger.repo_forked.repo_name.autocomplete', Homey.app.getRepoAutocompleteList);
-  Homey.manager('flow').on('trigger.repo_forked', checkRepo);
+  Homey.manager('flow').on('trigger.fork.repo_name.autocomplete', Homey.app.getRepoAutocompleteList);
+  Homey.manager('flow').on('trigger.fork', checkRepo);
 };
 
 function checkRepo(callback, args, state) {
@@ -10,17 +10,13 @@ function checkRepo(callback, args, state) {
 }
 
 function getRepoForkedTokenObject(args) {
-  let repository = args.body.repository;
-  let forkee = args.body.forkee;
-
   return {
-    repo_name: repository.name,
-    user_name: forkee.name
+    user_name: args.body.sender.login
   }
 }
 
 module.exports.onWebhookMessage = (args) => {
-  Homey.manager('flow').trigger('repo_forked', getRepoForkedTokenObject(args), args);
+  Homey.manager('flow').trigger('fork', getRepoForkedTokenObject(args), args);
 };
 
 module.exports.events = ['fork'];

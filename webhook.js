@@ -42,6 +42,7 @@ module.exports.init = () => {
 };
 
 function onWebhookMessage(args) {
+  console.log(args);
   if (args.headers && eventProcessors[args.headers['x-github-event']]) {
     eventProcessors[args.headers['x-github-event']].onWebhookMessage(args);
   }

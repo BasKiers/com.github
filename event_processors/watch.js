@@ -10,11 +10,8 @@ function checkRepo(callback, args, state) {
 }
 
 function getStatusTokenObject(args) {
-  const repository = args.body.repository;
-
   return {
-    user_name: args.body.sender.login,
-    repo_name: repository.name
+    user_name: args.body.sender.login
   }
 }
 

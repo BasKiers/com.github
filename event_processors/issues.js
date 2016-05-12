@@ -16,19 +16,16 @@ function checkRepo(callback, args, state) {
 }
 
 function getIssueTokenObject(args) {
-  const repository = args.body.repository;
   const issue = args.body.issue;
 
   return {
     issue_title: issue.title,
     issue_body: issue.body,
-    user_name: args.body.sender.login,
-    repo_name: repository.name
+    user_name: args.body.sender.login
   }
 }
 
 function getIssueCommentTokenObject(args) {
-  const repository = args.body.repository;
   const issue = args.body.issue;
   const comment = args.body.comment;
 
@@ -36,8 +33,7 @@ function getIssueCommentTokenObject(args) {
     issue_title: issue.title,
     issue_state: issue.state,
     comment_body: comment.body,
-    user_name: comment.user.login,
-    repo_name: repository.name
+    user_name: comment.user.login
   }
 }
 

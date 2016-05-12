@@ -10,11 +10,8 @@ function checkRepo(callback, args, state) {
 }
 
 function getPushTokenObject(args) {
-  const repository = args.body.repository;
-
   return {
     branch: args.body.ref.substring(11), //remove refs/heads/ prefix
-    repo_name: repository.name,
     user_name: args.body.sender.login,
     commits: args.body.commits.length
   }
