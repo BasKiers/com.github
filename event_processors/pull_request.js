@@ -31,19 +31,11 @@ function getPullRequestTokenObject(args) {
 }
 
 function getPullRequestCommentTokenObject(args) {
-  const pr = args.body.pull_request;
   const comment = args.body.comment;
 
   return {
-    pr_title: pr.title,
-    pr_body: pr.body,
-    pr_state: pr.state,
     comment_body: comment.body,
-    comment_user_name: comment.user.login,
-    pr_from_name: pr.head.repo.name,
-    pr_from_branch: pr.base.ref,
-    pr_from_owner: pr.head.repo.owner.login,
-    pr_to_branch: pr.head.ref
+    comment_user_name: comment.user.login
   }
 }
 
@@ -63,4 +55,4 @@ module.exports.onWebhookMessage = (args) => {
   }
 };
 
-module.exports.events = ['pull_request', 'pull_request_review_comment'];
+module.exports.events = ['pull_request', 'pull_request_review_comment', 'pull_request_issue_comment'];

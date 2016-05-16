@@ -515,33 +515,6 @@
         },
         "tokens": [
           {
-            "name": "pr_title",
-            "title": {
-              "en": "title"
-            },
-            "example": {
-              "en": "Fixed x"
-            }
-          },
-          {
-            "name": "pr_body",
-            "title": {
-              "en": "description"
-            },
-            "example": {
-              "en": "fixed x by doing y and my fix completes all tests"
-            }
-          },
-          {
-            "name": "pr_state",
-            "title": {
-              "en": "state"
-            },
-            "example": {
-              "en": "open"
-            }
-          },
-          {
             "name": "comment_body",
             "title": {
               "en": "comment"
@@ -557,42 +530,6 @@
             },
             "example": {
               "en": "janjansen"
-            }
-          },
-          {
-            "name": "pr_from_name",
-            "title": {
-              "en": "source"
-            },
-            "example": {
-              "en": "com.helloworld"
-            }
-          },
-          {
-            "name": "pr_from_branch",
-            "title": {
-              "en": "source branch"
-            },
-            "example": {
-              "en": "changes"
-            }
-          },
-          {
-            "name": "pr_from_owner",
-            "title": {
-              "en": "source owner"
-            },
-            "example": {
-              "en": "janjansen"
-            }
-          },
-          {
-            "name": "pr_to_branch",
-            "title": {
-              "en": "dest branch"
-            },
-            "example": {
-              "en": "master"
             }
           }
         ],

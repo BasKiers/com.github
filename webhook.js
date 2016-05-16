@@ -42,7 +42,10 @@ module.exports.init = () => {
 };
 
 function onWebhookMessage(args) {
-  console.log(args);
+  // exception
+  if(args.headers && args.headers['x-github-event'] === 'issue_comment' && args.body.issue.pull_request){
+    args.headers['x-github-event'] = 'pull_request_issue_comment'
+  }
   if (args.headers && eventProcessors[args.headers['x-github-event']]) {
     eventProcessors[args.headers['x-github-event']].onWebhookMessage(args);
   }
