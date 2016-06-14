@@ -3,11 +3,18 @@
   "name": {
     "en": "Github"
   },
+  "category": "tools",
   "version": "1.0.0",
   "compatibility": "0.x || 1.x",
   "author": {
-    "name": "Bas Kiers",
-    "email": "bas@athom.nl"
+    "name": "Athom B.V."
+  },
+  "description": {
+    "en": "This app lets you use github webhook actions in your flows"
+  },
+  "images": {
+    "large": "assets/images/large.png",
+    "small": "assets/images/small.png"
   },
   "flow": {
     "triggers": [
