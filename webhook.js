@@ -16,7 +16,7 @@ fs.readdirSync(eventDir).forEach(eventParser => {
 module.exports.init = () => {
   let webhookId = Homey.manager('settings').get('webhook_id');
   if (!webhookId) {
-    webhookId = require('crypto').randomBytes(36).toString('base64').replace(/\/&=/g, '');
+    webhookId = require('uuid').v4();
     Homey.manager('settings').set('webhook_id', webhookId);
     Homey.manager('settings').set(
       'webhook_url',
